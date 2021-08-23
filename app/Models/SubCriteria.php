@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Criteria;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class SubCriteria extends Model
 {
@@ -14,4 +15,9 @@ class SubCriteria extends Model
         'sub_criteria_name',
         'value',
     ];
+
+    public function criteria()
+    {
+        return $this->belongsTo(Criteria::class);
+    }
 }
