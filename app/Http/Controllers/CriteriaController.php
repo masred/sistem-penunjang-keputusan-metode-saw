@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Criteria;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\SubCriteria;
 
 class CriteriaController extends Controller
 {
@@ -16,7 +17,8 @@ class CriteriaController extends Controller
     public function index()
     {
         $criterias = Criteria::all();
-        return view('criteria.index', compact('criterias'));
+        $subCriterias = SubCriteria::all()->sortByDesc('value');
+        return view('criteria.index', compact(['criterias', 'subCriterias']));
     }
 
     /**
@@ -49,7 +51,7 @@ class CriteriaController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('subcriteria.create', compact('id'));
     }
 
     /**
@@ -60,7 +62,7 @@ class CriteriaController extends Controller
      */
     public function edit($id)
     {
-        $criteria = Criteria::find($id)->get()->first();
+        $criteria = Criteria::all()->find($id);
         return view('criteria.edit', compact('criteria'));
     }
 
