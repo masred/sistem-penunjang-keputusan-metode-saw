@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class alternative_value extends Model
+class AlternativeValues extends Model
 {
     use HasFactory;
     public $timestamps = false;
