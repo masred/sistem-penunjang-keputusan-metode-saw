@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CriteriaController;
+use App\Http\Controllers\SubCriteriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('criteria', CriteriaController::class);
+Route::resource('sub-criteria', SubCriteriaController::class)->except(['index', 'show', 'create']);
