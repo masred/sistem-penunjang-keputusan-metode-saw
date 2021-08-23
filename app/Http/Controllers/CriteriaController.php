@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Criteria;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CriteriaController extends Controller
 {
@@ -13,7 +15,8 @@ class CriteriaController extends Controller
      */
     public function index()
     {
-        return view('criteria.index');
+        $criterias = Criteria::all();
+        return view('criteria.index', compact('criterias'));
     }
 
     /**
@@ -23,7 +26,7 @@ class CriteriaController extends Controller
      */
     public function create()
     {
-        //
+        return view('criteria.create');
     }
 
     /**
@@ -34,7 +37,8 @@ class CriteriaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Criteria::create($request->all());
+        return redirect()->route('criteria.index');
     }
 
     /**
@@ -56,7 +60,8 @@ class CriteriaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $criteria = Criteria::find($id)->get()->first();
+        return view('criteria.edit', compact('criteria'));
     }
 
     /**
@@ -68,7 +73,8 @@ class CriteriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Criteria::find($id)->update($request->all());
+        return redirect()->route('criteria.index');
     }
 
     /**
@@ -79,6 +85,7 @@ class CriteriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Criteria::destroy($id);
+        return redirect()->back();
     }
 }

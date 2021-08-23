@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-    <title>Layout &rsaquo; Default &mdash; Stisla</title>
+    <title>@yield('header')</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -35,7 +35,8 @@
                 <ul class="navbar-nav navbar-right">
                     <li class="dropdown"><a href="#" data-toggle="dropdown"
                             class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+                            <img alt="image" src="{{ asset('assets/img/avatar/avatar-1.png') }}"
+                                class="rounded-circle mr-1">
                             <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
@@ -57,12 +58,13 @@
                     </div>
                     <ul class="sidebar-menu">
                         <li class="menu-header">Master</li>
-                        <li class="nav-item">
+                        <li class="nav-item @yield('alternatif')">
                             <a href="#" class="nav-link"><i
                                     class="fab fa-acquisitions-incorporated"></i><span>Alternatif</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fas fa-dharmachakra"></i><span>Kriteria</span></a>
+                        <li class="nav-item @yield('kriteria')">
+                            <a href="{{ route('criteria.index') }}" class="nav-link"><i
+                                    class="fas fa-dharmachakra"></i><span>Kriteria</span></a>
                         </li>
                         <li class="menu-header">Hasil</li>
                         <li class="nav-item">
