@@ -59,7 +59,7 @@
                     <ul class="sidebar-menu">
                         <li class="menu-header">Master</li>
                         <li class="nav-item @yield('alternatif')">
-                            <a href="#" class="nav-link"><i
+                            <a href="{{ route('alternative.index') }}" class="nav-link"><i
                                     class="fab fa-acquisitions-incorporated"></i><span>Alternatif</span></a>
                         </li>
                         <li class="nav-item @yield('kriteria')">
