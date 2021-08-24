@@ -17,6 +17,7 @@ class CreateAlternativeValuesTable extends Migration
             $table->id();
             $table->foreignId('alternative_id');
             $table->foreignId('criteria_id');
+            $table->foreignId('sub_criteria_id');
             $table->string('real_value');
         });
     }

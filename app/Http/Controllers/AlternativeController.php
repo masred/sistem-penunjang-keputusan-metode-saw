@@ -57,7 +57,8 @@ class AlternativeController extends Controller
             AlternativeValues::create([
                 'alternative_id' => $alternative->id,
                 'criteria_id' => $req['criteria_id' . $i],
-                'real_value' => $req['real_value' . $i],
+                'sub_criteria_id' => explode('-', $req['real_value' . $i])[0],
+                'real_value' => explode('-', $req['real_value' . $i])[1],
             ]);
         }
         return redirect()->route('alternative.index');
@@ -94,7 +95,8 @@ class AlternativeController extends Controller
         for ($i = 1; $i <= Criteria::all()->count(); $i++) {
             AlternativeValues::where(['alternative_id' => $id, 'criteria_id' => $req['criteria_id' . $i]])->update([
                 'alternative_id' => $id,
-                'real_value' => $req['real_value' . $i],
+                'sub_criteria_id' => explode('-', $req['real_value' . $i])[0],
+                'real_value' => explode('-', $req['real_value' . $i])[1],
             ]);
         }
         return redirect()->route('alternative.index');
