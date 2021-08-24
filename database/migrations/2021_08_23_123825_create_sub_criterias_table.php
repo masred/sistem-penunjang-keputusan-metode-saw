@@ -17,7 +17,6 @@ class CreateSubCriteriasTable extends Migration
             $table->id();
             $table->foreignId('criteria_id');
             $table->string('sub_criteria_name');
-            $table->string('range');
             $table->string('value');
         });
     }

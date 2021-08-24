@@ -36,7 +36,8 @@ class AlternativeController extends Controller
     public function create()
     {
         $criterias = Criteria::all();
-        return view('alternative.create', compact(['criterias']));
+        $subCriteria = SubCriteria::all();
+        return view('alternative.create', compact(['criterias', 'subCriteria']));
     }
 
     /**
@@ -71,9 +72,10 @@ class AlternativeController extends Controller
     public function edit($id)
     {
         $criterias = Criteria::all();
+        $subCriteria = SubCriteria::all();
         $alternative = Alternatives::all()->find($id);
         $altv = AlternativeValues::all()->where('alternative_id', $id);
-        return view('alternative.edit', compact(['criterias', 'alternative', 'altv']));
+        return view('alternative.edit', compact(['criterias', 'alternative', 'altv', 'subCriteria']));
     }
 
     /**
