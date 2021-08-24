@@ -67,8 +67,9 @@
                                     class="fas fa-dharmachakra"></i><span>Kriteria</span></a>
                         </li>
                         <li class="menu-header">Hasil</li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"><i class="fas fa-square-root-alt"></i>
+                        <li class="nav-item @yield('analisis')">
+                            <a href="{{ route('analyze.index') }}" class="nav-link"><i
+                                    class="fas fa-square-root-alt"></i>
                                 <span>Analisis</span></a>
                         </li>
                     </ul>
