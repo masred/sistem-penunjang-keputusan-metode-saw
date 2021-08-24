@@ -12,6 +12,6 @@ class AlternativeValues extends Model
     protected $fillable = [
         'alternative_id',
         'criteria_id',
-        'value',
+        'real_value',
     ];
 }
