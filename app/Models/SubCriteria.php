@@ -13,6 +13,7 @@ class SubCriteria extends Model
     protected $fillable = [
         'criteria_id',
         'sub_criteria_name',
+        'range',
         'value',
     ];
 

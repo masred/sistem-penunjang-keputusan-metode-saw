@@ -17,6 +17,10 @@
             <input type="text" class="form-control" name="sub_criteria_name" required>
         </div>
         <div class="form-group">
+            <label>Rentang</label>
+            <input type="text" class="form-control" name="range" required>
+        </div>
+        <div class="form-group">
             <label>Nilai</label>
             <input type="text" min="0" class="form-control" name="value" required>
         </div>

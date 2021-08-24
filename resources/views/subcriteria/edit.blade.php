@@ -18,6 +18,10 @@
                 value="{{ old('sub_criteria_name', $subCriteria->sub_criteria_name) }}" required>
         </div>
         <div class="form-group">
+            <label>Rentang</label>
+            <input type="text" class="form-control" name="range" value="{{ old('range', $subCriteria->range) }}" required>
+        </div>
+        <div class="form-group">
             <label>Nilai</label>
             <input type="text" min="0" class="form-control" name="value" value="{{ old('value', $subCriteria->value) }}"
                 required>

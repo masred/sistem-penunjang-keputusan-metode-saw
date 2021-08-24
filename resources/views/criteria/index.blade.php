@@ -19,7 +19,7 @@
                     <th>Nama Kriteria</th>
                     <th>Atribut</th>
                     <th>Bobot</th>
-                    <th>Sub Kriteria (Nilai)</th>
+                    <th>Sub Kriteria (Rentang) (Nilai)</th>
                     <th>Aksi</th>
                 </tr>
                 @foreach ($criterias as $criteria)
@@ -31,7 +31,8 @@
                         <td>
                             @foreach ($subCriterias as $subCriteria)
                                 @if ($criteria->id == $subCriteria->criteria_id)
-                                    {{ $subCriteria->sub_criteria_name }} ({{ $subCriteria->value }})
+                                    {{ $subCriteria->sub_criteria_name }} ({{ $subCriteria->range }})
+                                    ({{ $subCriteria->value }})
                                     <a href="{{ route('sub-criteria.edit', $subCriteria->id) }}" class="text-success">
                                         <i class="fas fa-edit"></i>
                                     </a>
