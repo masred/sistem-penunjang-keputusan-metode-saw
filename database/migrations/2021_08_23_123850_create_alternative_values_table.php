@@ -15,9 +15,9 @@ class CreateAlternativeValuesTable extends Migration
     {
         Schema::create('alternative_values', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('alternative_id');
-            $table->foreignId('criteria_id');
-            $table->foreignId('sub_criteria_id');
+            $table->foreignId('alternative_id')->constrained();
+            $table->foreignId('criteria_id')->constrained();
+            $table->foreignId('sub_criteria_id')->constrained();
             $table->string('real_value');
         });
     }
