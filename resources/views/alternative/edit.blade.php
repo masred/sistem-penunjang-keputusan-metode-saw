@@ -24,7 +24,7 @@
                 <select name="real_value{{ $loop->iteration }}" class="custom-select">
                     @foreach ($subCriteria as $sc)
                         @if ($sc->criteria_id == $criteria->id)
-                            <option value="{{ $sc->id . '-' . $sc->sub_criteria_name }}" @foreach ($altv as $a)
+                            <option value="{{ $sc->id . '=' . $sc->sub_criteria_name }}" @foreach ($altv as $a)
                                 {{ $a->sub_criteria_id == $sc->id ? 'selected' : '' }}
                         @endforeach
                         >

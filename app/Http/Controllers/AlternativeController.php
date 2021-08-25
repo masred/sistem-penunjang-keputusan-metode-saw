@@ -48,6 +48,7 @@ class AlternativeController extends Controller
      */
     public function store(Request $request)
     {
+
         $req = $request->all();
         Alternatives::create([
             'alternative_name' => $request->alternative_name
@@ -57,8 +58,8 @@ class AlternativeController extends Controller
             AlternativeValues::create([
                 'alternative_id' => $alternative->id,
                 'criteria_id' => $req['criteria_id' . $i],
-                'sub_criteria_id' => explode('-', $req['real_value' . $i])[0],
-                'real_value' => explode('-', $req['real_value' . $i])[1],
+                'sub_criteria_id' => explode('=', $req['real_value' . $i])[0],
+                'real_value' => explode('=', $req['real_value' . $i])[1],
             ]);
         }
         return redirect()->route('alternative.index');
