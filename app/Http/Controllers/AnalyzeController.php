@@ -48,10 +48,25 @@ class AnalyzeController extends Controller
             array_push($cost, min($dv));
         }
 
+        $alt_attribute = [];
+        foreach ($criterias as $c) {
+            $a = DB::table('alternative_values')
+                ->join('alternatives', 'alternative_values.alternative_id', '=', 'alternatives.id')
+                ->join('criterias', 'alternative_values.criteria_id', '=', 'criterias.id')
+                ->join('sub_criterias', 'alternative_values.sub_criteria_id', '=', 'sub_criterias.id')
+                ->where('criterias.id', $c->id)
+                ->get('attribute')->toArray();
+            array_push($alt_attribute, $a);
+        }
+
         $normalisasi = [];
         for ($i = 0; $i < $criterias->count(); $i++) {
             for ($j = 0; $j < $alternatives->count(); $j++) {
-                $normalisasi[$i][$j] = $data_value[$i][$j]->value / $benefit[$i]->value;
+                if ($alt_attribute[$i][$j]->attribute == 'Benefit') {
+                    $normalisasi[$i][$j] = $data_value[$i][$j]->value / $benefit[$i]->value;
+                } elseif ($alt_attribute[$i][$j]->attribute == 'Cost') {
+                    $normalisasi[$i][$j] = $cost[$i]->value / $data_value[$i][$j]->value;
+                }
             }
         }
 
