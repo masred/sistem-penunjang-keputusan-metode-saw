@@ -15,10 +15,10 @@ class CreateAlternativeValuesTable extends Migration
     {
         Schema::create('alternative_values', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('alternative_id')->constrained();
-            $table->foreignId('criteria_id')->constrained();
-            $table->foreignId('sub_criteria_id')->constrained();
-            $table->string('real_value');
+            $table->foreignId('alternative_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('criteria_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('sub_criteria_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('real_value')->nullable();
         });
     }
 
