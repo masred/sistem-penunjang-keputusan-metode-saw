@@ -50,7 +50,6 @@ class AlternativeController extends Controller
     {
 
         $req = $request->all();
-        dd($req);
         Alternatives::create([
             'alternative_name' => $request->alternative_name
         ]);
