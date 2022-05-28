@@ -23,12 +23,16 @@ use App\Http\Controllers\SubCriteriaController;
 Route::get('/', function () {
     return redirect('/criteria');
 });
-Route::resource('criteria', CriteriaController::class);
-Route::resource('sub-criteria', SubCriteriaController::class)->except(['index', 'show', 'create']);
-Route::resource('alternative', AlternativeController::class)->except('show');
-Route::resource('analyze', AnalyzeController::class)->only('index');
-Route::get('/logout', [LoginController::class, 'logout']);
 
+Route::middleware(['auth'])->group(function () {
+    Route::resource('criteria', CriteriaController::class);
+    Route::resource('sub-criteria', SubCriteriaController::class)->except(['index', 'show', 'create']);
+    Route::resource('alternative', AlternativeController::class)->except('show');
+    Route::resource('analyze', AnalyzeController::class)->only('index');
+    Route::get('/logout', [LoginController::class, 'logout']);
+});
 
-Route::resource('login', LoginController::class)->only(['index', 'store']);
-Route::resource('register', RegisterController::class)->only(['index', 'store']);
+Route::middleware(['guest'])->group(function () {
+    Route::resource('login', LoginController::class)->only(['index', 'store']);
+    Route::resource('register', RegisterController::class)->only(['index', 'store']);
+});
