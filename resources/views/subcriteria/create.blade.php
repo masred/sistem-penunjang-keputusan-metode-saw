@@ -14,7 +14,7 @@
         <input type="hidden" value="{{ $id }}" name="criteria_id">
         <div class="form-group">
             <label>Nama Sub Kriteria</label>
-            <input type="text" class="form-control" name="sub_criteria_name" required>
+            <input type="text" class="form-control" name="sub_criteria_name" required autofocus>
         </div>
         <div class="form-group">
             <label>Nilai</label>

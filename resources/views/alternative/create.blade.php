@@ -13,13 +13,14 @@
         @csrf
         <div class="form-group">
             <label>Nama Alternative</label>
-            <input type="text" class="form-control" name="alternative_name" required>
+            <input type="text" class="form-control" name="alternative_name" required autofocus>
         </div>
         @foreach ($criterias as $criteria)
             <div class="form-group">
                 <label>{{ $criteria->criteria_name }}</label>
                 <input type="hidden" name="criteria_id{{ $loop->iteration }}" value="{{ $criteria->id }}">
                 <select name="real_value{{ $loop->iteration }}" class="custom-select">
+                    <option value="" selected disabled>-</option>
                     @foreach ($subCriteria as $sc)
                         @if ($sc->criteria_id == $criteria->id)
                             <option value="{{ $sc->id . '~' . $sc->sub_criteria_name }}">{{ $sc->sub_criteria_name }}
