@@ -24,16 +24,14 @@
                 <select name="real_value{{ $loop->iteration }}" class="custom-select">
                     @foreach ($subCriteria as $sc)
                         @if ($sc->criteria_id == $criteria->id)
-                            <option value="{{ $sc->id . '=' . $sc->sub_criteria_name }}" @foreach ($altv as $a)
-                                {{ $a->sub_criteria_id == $sc->id ? 'selected' : '' }}
-                        @endforeach
-                        >
-                        {{ $sc->sub_criteria_name }}
-                        </option>
-                    @endif
-        @endforeach
-        </select>
-        </div>
+                            <option value="{{ $sc->id . '~' . $sc->sub_criteria_name }}"
+                                @foreach ($altv as $a) {{ $a->sub_criteria_id == $sc->id ? 'selected' : '' }} @endforeach>
+                                {{ $sc->sub_criteria_name }}
+                            </option>
+                        @endif
+                    @endforeach
+                </select>
+            </div>
         @endforeach
         <button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Simpan</button>
     </form>
