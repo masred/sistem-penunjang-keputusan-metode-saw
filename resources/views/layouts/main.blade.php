@@ -80,9 +80,9 @@
             <div class="main-content">
                 <section class="section">
                     <div class="section-header">
-                        <h1>@yield("header")</h1>
+                        <h1>@yield('header')</h1>
                         <div class="section-header-breadcrumb">
-                            <div class="breadcrumb-item">@yield("section")</div>
+                            <div class="breadcrumb-item">@yield('section')</div>
                             <div class="breadcrumb-item">@yield('current-section')</div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="section-body">
                         <div class="card">
                             <div class="card-body">
-                                @yield("content")
+                                @yield('content')
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
             </div>
             <footer class="main-footer">
                 <div class="footer-left">
-                    Copyright &copy; 2021
+                    Copyright &copy; 2022
                 </div>
                 <div class="footer-right">
                     v1.0
