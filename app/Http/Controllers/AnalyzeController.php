@@ -72,6 +72,13 @@ class AnalyzeController extends Controller
 
         $preferensi = [];
         $data_weight = Criteria::get('weight')->toArray();
+        for ($i = 0; $i < count($data_weight); $i++) {
+            if (is_numeric($data_weight[$i]['weight']) && floor($data_weight[$i]['weight']) != $data_weight[$i]['weight']) {
+                continue;
+            } else {
+                $data_weight[$i]['weight'] = $data_weight[$i]['weight'] / 100;
+            }
+        }
         for ($i = 0; $i < $criterias->count(); $i++) {
             for ($j = 0; $j < $alternatives->count(); $j++) {
                 $preferensi[$i][$j] = $normalisasi[$i][$j] * $data_weight[$i]['weight'];
